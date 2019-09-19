@@ -1,0 +1,16 @@
+version: '2.1'
+networks:
+  dev:
+    driver: bridge
+volumes:
+  conf: {}
+  data: {}
+  logs: {}
+services:
+  sonar:
+    image: sonarqube
+    ports: ['80:9000']
+    networks: [dev]
+    volumes: ['conf:/opt/sonarqube/conf',
+              'data:/opt/sonarqube/data',
+              'logs:/opt/sonarqube/logs',]
